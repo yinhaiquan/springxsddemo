@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+        xmlns="http://haiquan/facade"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://haiquan/facade"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+    <xsd:element name="demo2">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="property" type="property" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:ID"/>
+            <xsd:attribute name="class" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation source="java:java.lang.Class">
+                        <![CDATA[
+                            定义java类路径
+                        ]]>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="property">
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="ref" type="xsd:string"/>
+        <xsd:attribute name="value" type="xsd:string"/>
+    </xsd:complexType>
+
+
+    <xsd:element name="demo">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+	测试一个标签内多个并列元素.
+			]]>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+             <xsd:attributeGroup ref="demo-group"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:attributeGroup name="demo-group">
+        <xsd:attribute name="id" type="xsd:ID"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="desc" type="xsd:string"/>
+    </xsd:attributeGroup>
+
+    <xsd:element name="facade" type="facadeType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+	test xsd define.
+			]]>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="childType">
+        <xsd:all>
+            <xsd:element type="xsd:string" name="name"/>
+            <xsd:element type="xsd:int" name="age"/>
+        </xsd:all>
+        <xsd:attribute name="cls" type="xsd:string" use="required">
+            <xsd:annotation>
+                <xsd:documentation source="java:java.lang.Class">
+                    <![CDATA[
+                        测试属性是java中的类
+                    ]]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="facadeType">
+        <!--标签元素子元素定义-->
+        <xsd:sequence>
+            <xsd:element name="birthday" type="xsd:string"/>
+            <xsd:element name="child" type="childType"/>
+        </xsd:sequence>
+        <!--标签属性定义-->
+        <xsd:attribute name="id" type="xsd:ID" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[
+	id is unique.
+			]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="interCode" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[
+	interCode is string.
+			]]>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="reqEvent" type="xsd:string"/>
+        <xsd:attribute name="resEvent" type="xsd:string"/>
+        <xsd:attribute name="characterEncoding" default="utf-8">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[
+	复合数据类型：字符编码格式,xsd:simpleType定义该属性选择枚举值范围.
+			]]>
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="utf-8"/>
+                    <xsd:enumeration value="gbk"/>
+                    <xsd:enumeration value="unicode"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="money">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <![CDATA[
+	复合数据类型：定义整数范围.
+			]]>
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:int">
+                    <xsd:minInclusive value="1"/>
+                    <xsd:maxInclusive value="100"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,3 @@
+# 定义命名空间 类似spring.xml中定义bean一样，直接使用<bean> 而不是<bean:bean>
+http\://haiquan/facade@name=facade Namespace
+http\://haiquan/facade@prefix=facade

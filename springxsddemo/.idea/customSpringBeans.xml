@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CustomBeanRegistry">
+    <option name="map">
+      <map>
+        <entry key="&lt;facade:facade xmlns:facade=&quot;http://haiquan/facade&quot; id=&quot;sdf&quot; interCode=&quot;sdtest&quot; resEvent=&quot;res&quot; reqEvent=&quot;req&quot; characterEncoding=&quot;gbk&quot; money=&quot;-1&quot; /&gt;">
+          <value>
+            <list>
+              <CustomBeanInfo>
+                <option name="beanName" value="sdf" />
+                <option name="beanClassName" value="spring.self.xsd.bean.Facade" />
+                <option name="idAttribute" value="id" />
+              </CustomBeanInfo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="policies">
+      <map>
+        <entry>
+          <key>
+            <MyQName>
+              <option name="namespace" value="http://haiquan/facade" />
+              <option name="localName" value="facade" />
+            </MyQName>
+          </key>
+          <value>
+            <CustomBeanInfo>
+              <option name="beanClassName" value="spring.self.xsd.bean.Facade" />
+              <option name="idAttribute" value="id" />
+            </CustomBeanInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

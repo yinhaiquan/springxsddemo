@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+        xmlns="http://haiquan/rmi"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://haiquan/rmi"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+    <xsd:element name="rmi" type="rmi-type">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+	test rmi.
+			]]>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+   <xsd:complexType name="fuck">
+   </xsd:complexType>
+
+    <xsd:complexType name="rmi-type">
+       <xsd:complexContent>
+           <xsd:extension base="fuck">
+               <xsd:group ref="rmi-group"/>
+               <xsd:attribute name="id" type="xsd:string"/>
+           </xsd:extension>
+       </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:group name="rmi-group">
+        <xsd:all>
+            <xsd:element name="itemId">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <![CDATA[
+xsd:whiteSpace 指明对空白字符的限制, 取值有preserve/collapse/replace,
+ 一次是保留/只保留字符中间必须的空格,且多个合并为一个/全部去掉
+                        ]]>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:whiteSpace value="collapse"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="scope" type="choice-test"/>
+            <xsd:element name="init" type="xsd:string"/>
+        </xsd:all>
+    </xsd:group>
+
+    <xsd:complexType name="choice-test">
+        <xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="1">
+                <xsd:element name="test1" type="xsd:string"/>
+                <xsd:element name="test2" type="xsd:string"/>
+                <xsd:element name="test3" type="xsd:string"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

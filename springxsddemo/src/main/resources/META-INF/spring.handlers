@@ -1,0 +1,2 @@
+http\://haiquan/facade=spring.self.xsd.handler.FacadeNameSpaceHandler
+http\://haiquan/rmi=spring.self.xsd.handler.RmiNameSpaceHandler

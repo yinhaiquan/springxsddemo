@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springxsddemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="spring-xsd.war">
+      <element id="artifact" artifact-name="springxsddemo:war exploded" />
+    </root>
+  </artifact>
+</component>
